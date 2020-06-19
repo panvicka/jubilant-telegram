@@ -1,0 +1,36 @@
+.title {
+    font-size: 2em;
+    text-align: center;
+    border-bottom: 1px solid darkorchid;
+    padding: 0.7rem;
+}
+
+
+.title a {
+    color: darkslateblue !important;
+    text-decoration: none !important;
+    font-weight: 600;
+     }
+
+.navbar {
+    font-size: 1.2em;
+    text-align: center;
+    color: darkmagenta;
+    border-bottom: 1px solid darkorchid;
+    padding: 0.5rem;
+}
+
+.nav-item {
+    padding: 10px;
+    text-decoration: none;
+    color: firebrick;
+}
+
+.nav-item:visited, .nav-item:active, .nav-item:focus {
+    text-decoration: none;
+    color: firebrick;
+}
+
+.nav-item:hover {
+    text-decoration: underline;
+}
