@@ -1,3 +1,5 @@
+import { ARTICLES } from './../mock-articles';
+import { Article } from './../article';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticleListComponent implements OnInit {
 
+  articles: Article[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
+    this.articles = ARTICLES;
+    console.log(this.articles);
+
   }
 
 }

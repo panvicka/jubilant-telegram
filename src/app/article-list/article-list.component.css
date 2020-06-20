@@ -1,0 +1,32 @@
+.card {
+    border: 1px solid grey;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.card-body {
+    display: flex;
+    padding: 20px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+img {
+    max-height: 200px;
+}
+
+.meta-info {
+    color: grey;
+    font-size: 10px;
+    margin-top: -30px;
+}
+
+.continue-reading {
+    font-style:normal;
+    text-decoration: none;
+    color: darkslateblue;
+
+   
+}
