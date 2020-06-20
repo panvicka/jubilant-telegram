@@ -1,3 +1,4 @@
+import { ArticleService } from './../article.service';
 import { ARTICLES } from './../mock-articles';
 import { Article } from './../article';
 import { Component, OnInit } from '@angular/core';
@@ -11,12 +12,17 @@ export class ArticleListComponent implements OnInit {
 
   articles: Article[] = [];
 
-  constructor() { }
+  constructor(private ArticleService: ArticleService) { }
 
   ngOnInit(): void {
-    this.articles = ARTICLES;
-    console.log(this.articles);
+this.getArticles();
 
+  }
+
+  getArticles(): void {
+    this.ArticleService
+      .getArticles()
+      .subscribe(articles => (this.articles = articles));
   }
 
 }
