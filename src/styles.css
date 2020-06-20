@@ -5,3 +5,9 @@ body {
     max-width: 800px;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.meta-info {
+    color: grey;
+    font-size: 10px;
+    margin-top: -30px;
+}

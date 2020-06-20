@@ -1,4 +1,6 @@
+import { SharedService } from './../shared.service';
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  title = "About";
+
+  constructor(   
+    private titleService: Title, //for meta tags for google search also on google chrome tab 
+    private SharedService: SharedService,
+    ) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle(`${this.title} - ${this.SharedService.blogTitle}`); //what you will see on the chrome tab 
   }
 
 }
