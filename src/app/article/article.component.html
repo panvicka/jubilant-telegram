@@ -7,7 +7,7 @@
     </h1>
 
     <div class="meta-info">
-        {{article.date.toDateString()}}
+        {{article.date | date}}
     </div>
 
     <p [innerHTML]="article.content">

@@ -55,11 +55,11 @@ export class ArticleComponent implements OnInit {
               },
               {
                 property: "og:description",
-                content: this.article.description 
+                content: this.article.description
               },
               {
                 property: "og:site_name",
-                content: this.SharedService.blogTitle  
+                content: this.SharedService.blogTitle
               },
 
             ]
