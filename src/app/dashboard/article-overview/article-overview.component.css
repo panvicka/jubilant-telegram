@@ -1,0 +1,15 @@
+.dot {
+    height: 16px;
+    width: 16px;
+    background-color: dimgrey;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+
+.overview {
+    display: table;
+    border: 1px solid black;
+    border-radius: 0.25rem;
+    margin: 10px auto;
+}

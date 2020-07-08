@@ -1,3 +1,7 @@
+import { DashboardService } from './dashboard/dashboard.service';
+import { EditArticleComponent } from './dashboard/edit-article/edit-article.component';
+import { ArticleOverviewComponent } from './dashboard/article-overview/article-overview.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -19,14 +23,17 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ArticleListComponent,
     AboutComponent,
     ArticleComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    DashboardComponent,
+    ArticleOverviewComponent,
+    EditArticleComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DashboardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
