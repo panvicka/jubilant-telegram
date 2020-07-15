@@ -10,7 +10,7 @@ import { DashboardService } from '../dashboard.service';
 export class ArticleOverviewComponent implements OnInit {
 
   articles: Article[];
-  
+
   constructor(private dashboardService: DashboardService) {
 
 
@@ -28,5 +28,23 @@ export class ArticleOverviewComponent implements OnInit {
   }
 
 
+  togglePublishState(article: Article): void {
 
-}
+    article.published = !article.published;
+    this.dashboardService.togglePublishState(article).subscribe(
+      result=> {
+        const index: number = this.articles.findIndex(
+          currentArticle => currentArticle.id === result.id
+        )
+        this.articles[index] = result;
+      }, 
+      error => {
+        article.published = !article.published;
+        console.error(error);
+      });
+
+  }
+  }
+
+
+

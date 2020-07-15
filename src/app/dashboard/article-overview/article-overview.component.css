@@ -13,3 +13,48 @@
     border-radius: 0.25rem;
     margin: 10px auto;
 }
+
+.overview-head {
+    display: table-row;
+    background-color: rgb(169, 144, 226);
+    border-radius: 0.25rem;
+    font-weight: 600;
+}
+
+.overview-row {
+    display: table-row; 
+
+
+}
+
+.overview-cell {
+    display: table-cell;
+    padding: 5px;
+    vertical-align: middle;
+}
+
+
+.overview-image {
+    width: 50px;
+}
+
+a {
+    color: grey;
+}
+
+.center {
+    text-align: center;
+}
+
+
+.online {
+    background-color: green;
+}
+
+.offline {
+    background-color: red;
+}
+
+.publish-icon {
+    cursor: pointer;
+}
