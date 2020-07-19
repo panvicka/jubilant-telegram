@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'articles', component: ArticleListComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'dashboard/:key', component: EditArticleComponent },
+  { path: 'dashboard/preview/:key', component: ArticleComponent },
   { path: 'about', component: AboutComponent },
   { path: '404', component: NotFoundComponent },
   { path: '', component: ArticleListComponent },

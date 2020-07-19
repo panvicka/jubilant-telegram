@@ -11,6 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class EditArticleComponent implements OnInit {
 
   article: Article = null;
+  saved = false;
 
 
   constructor(
@@ -38,4 +39,22 @@ export class EditArticleComponent implements OnInit {
         this.article = article;
       });
   }
+
+
+  updateArticle(): void {
+    this.saved = false;
+
+    this.dasboardService.updateArticle(this.article).subscribe(result => {
+      this.article = result;
+      this.saved = true;
+    })
+  }
+
+  viewPreview(): void {
+    this.router.navigateByUrl("dashboard/preview/" + this.article.key);
+  }
+
 }
+
+
+
