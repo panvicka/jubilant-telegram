@@ -17,7 +17,7 @@
     </div>
 
     <div class="imageUrl">
-        <label>Date:</label>
+        <label>Image URL:</label>
         <input type="text" [(ngModel)]="article.imageUrl" />
     </div>
 
@@ -32,9 +32,10 @@
     </div>
 
 <div>
-    <button style="background-color:red; margin-right: 10px" (click)="deleteArticle()">Delete</button>
-    <button (click)="viewPreview()" style="margin-right: 10px">Preview</button>
-    <button (click)="updateArticle()">Update</button>
+    <button style="background-color:red; margin-right: 10px" *ngIf="!isNew" (click)="deleteArticle()">Delete</button>
+    <button (click)="viewPreview()" *ngIf="!isNew" style="margin-right: 10px">Preview</button>
+    <button (click)="updateArticle()" *ngIf="!isNew">Update</button>
+    <button (click)="createArticle()" *ngIf="isNew">Save as draft</button>
     <div *ngIf="saved" style ="color: green">
         Saved.
         <a routerLink="../../{{article.key}}">View article.</a>

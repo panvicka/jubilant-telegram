@@ -12,6 +12,7 @@ export class EditArticleComponent implements OnInit {
 
   article: Article = null;
   saved = false;
+  isNew = false;
 
 
   constructor(
@@ -23,7 +24,18 @@ export class EditArticleComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const key: string = params.key;
-      this.getArticle(key);
+
+      if (key !== "new") {
+        this.getArticle(key);
+      } else {
+        this.article = new Article();
+        this.article.published = false;
+        this.isNew = true;
+      }
+
+
+
+     
 
     });
   }
@@ -61,12 +73,24 @@ export class EditArticleComponent implements OnInit {
     const deletionConfirmed = confirm(`Deleting '${this.article.title}'. Are you sure?`);
     if (deletionConfirmed) {
       this.dasboardService.deleteArticle(this.article.id).subscribe(
-        () => {this.router.navigateByUrl("dashboard"); 
-      }, 
-      error => alert(error.message)
+        () => {
+          this.router.navigateByUrl("dashboard");
+        },
+        error => alert(error.message)
       );
     }
   }
+
+  createArticle(): void {
+    this.saved = false;
+    this.dasboardService.createArticle(this.article).subscribe(result => {
+      this.article = result;
+      this.saved = true;
+      this.isNew = false;
+    });
+  }
+
+
 }
 
 

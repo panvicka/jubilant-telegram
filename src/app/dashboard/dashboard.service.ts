@@ -36,6 +36,10 @@ export class DashboardService {
     return this.http.delete<any>(environment.apiUrl + "/dashboard/article/" + id);
   }
 
+  createArticle(article: Article): Observable<Article> {
+    return this.http.post<Article>(environment.apiUrl + "/dashboard/article", article);
+  }
+
 
 
 
