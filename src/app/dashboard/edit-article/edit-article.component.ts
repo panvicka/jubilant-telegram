@@ -1,4 +1,7 @@
+import { DashboardService } from './../dashboard.service';
 import { Component, OnInit } from '@angular/core';
+import { Article } from 'src/app/article';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit-article',
@@ -7,9 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditArticleComponent implements OnInit {
 
-  constructor() { }
+  article: Article = null;
+
+
+  constructor(
+    private dasboardService: DashboardService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      const key: string = params.key;
+      this.getArticle(key);
+
+    });
   }
 
+
+  getArticle(key: string): void {
+    this.dasboardService.getArticle(key).subscribe(
+      (article: Article) => {
+        if (article === null) {
+          this.router.navigateByUrl("404");
+          return;
+        }
+        this.article = article;
+      });
+  }
 }

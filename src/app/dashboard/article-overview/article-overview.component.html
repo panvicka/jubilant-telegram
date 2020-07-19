@@ -5,6 +5,8 @@
         <div class="overview-cell">Date</div>
         <div class="overview-cell">Views</div>
         <div class="overview-cell">Online</div>
+        <div class="overview-cell"></div>
+
     </div>
 
 
@@ -19,7 +21,7 @@
         (click)="togglePublishState(article)"
         class="dot publish-icon" 
         [ngClass]="{'online' : article.published, 'offline' : !article.published}"></span> </div>
-
+        <div class ="overview-cell"> <a routerLink="/dashboard/{{article.key}}">Edit</a></div>
     </div>
 
 </div>

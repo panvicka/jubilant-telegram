@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { DashboardService } from './dashboard/dashboard.service';
 import { EditArticleComponent } from './dashboard/edit-article/edit-article.component';
 import { ArticleOverviewComponent } from './dashboard/article-overview/article-overview.component';
@@ -31,7 +32,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [DashboardService],
   bootstrap: [AppComponent]
