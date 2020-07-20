@@ -90,6 +90,13 @@ export class EditArticleComponent implements OnInit {
     });
   }
 
+  updateKey():void {
+    this.article.key = this.article.title
+      .toLowerCase()
+      .replace(new RegExp(' ', 'g'),'-'); //for every space (made by G), replace it with dash
+
+  }
+
 
 }
 
