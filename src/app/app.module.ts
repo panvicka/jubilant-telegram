@@ -14,7 +14,9 @@ import { ArticleListComponent } from './article-list/article-list.component';
 import { AboutComponent } from './about/about.component';
 import { ArticleComponent } from './article/article.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { Interceptor } from './interceptor';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     ArticleOverviewComponent,
     EditArticleComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -35,7 +38,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [DashboardService],
+  providers: [DashboardService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Interceptor,
+      multi: true
+
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

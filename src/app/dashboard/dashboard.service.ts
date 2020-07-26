@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Article } from '../article';
@@ -14,6 +14,7 @@ export class DashboardService {
 
 
   }
+
 
   getArticles(): Observable<Article[]> {
     return this.http.get<Article[]>(environment.apiUrl + "/dashboard/overview");
